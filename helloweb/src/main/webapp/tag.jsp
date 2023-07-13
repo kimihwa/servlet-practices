@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,39 +14,37 @@
 	<h5>Hello World</h5>
 	<h6>Hello World</h6>
 
-	<table border = "1">
+	<table border="1">
 		<tr>
 			<th>글번호</th>
 			<th>글제목</th>
 			<th>작성자</th>
 		</tr>
-		
+
 		<tr>
 			<td>1</td>
 			<td>안녕</td>
 			<td>둘리</td>
 		</tr>
-		
+
 		<tr>
 			<td>2</td>
 			<td>안녕</td>
 			<td>마이콜</td>
 		</tr>
 	</table>
-	
+
 	<br>
-	
-	<img src = "/helloweb/asset/images/짱구.png" style="width:200px">
-	
+
+	<img src="/helloweb/asset/images/짱구.png" style="width: 200px">
+
 	<p>
-		문장입니다.<br>
-		문장입니다.<br>
-		문장입니다.
+		문장입니다.<br> 문장입니다.<br> 문장입니다.
 	</p>
-	
-	<a href = "/helloweb/hello?no=10&age=20">hello으로 가기</a>
+
+	<a href="/helloweb/hello?no=10&age=20">hello으로 가기</a>
 	<br>
-	<a href = "/helloweb/form.jsp">form으로 가기</a>
-	
+	<a href="/helloweb/form.jsp">form으로 가기</a>
+
 </body>
 </html>
