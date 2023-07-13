@@ -1,7 +1,8 @@
-﻿﻿﻿<%@page import="com.bitacademy.emaillist.vo.EmaillistVo"%>
+﻿﻿<%@page import="com.bitacademy.emaillist.vo.EmaillistVo"%>
 <%@page import="java.util.List"%>
 <%@page import="com.bitacademy.emaillist.dao.EmaillistDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 	EmaillistDao dao = new EmaillistDao();
 	List<EmaillistVo> list = dao.findAll();
@@ -18,25 +19,25 @@
 	<%
 		for(EmaillistVo vo : list) {
 	%>
-		<table border="1" cellpadding="5" cellspacing="2">
-			<tr>
-				<td align=right>First name: </td>
-				<td><%=vo.getFirstName() %></td>
-			</tr>
-			<tr>
-				<td align=right width="110">Last name: </td>
-				<td width="110"><%=vo.getLastName() %></td>
-			</tr>
-			<tr>
-				<td align=right>Email address: </td>
-				<td><%=vo.getEmail() %></td>
-			</tr>
-		</table>
-		<br>
+	<table border="1" cellpadding="5" cellspacing="2">
+		<tr>
+			<td align=right>First name:</td>
+			<td><%=vo.getFirstName() %></td>
+		</tr>
+		<tr>
+			<td align=right width="110">Last name:</td>
+			<td width="110"><%=vo.getLastName() %></td>
+		</tr>
+		<tr>
+			<td align=right>Email address:</td>
+			<td><%=vo.getEmail() %></td>
+		</tr>
+	</table>
+	<br>
 	<%
 		}
 	%>
-	
+
 	<p>
 		<a href="/emaillist01/form.jsp">추가메일 등록</a>
 	</p>
