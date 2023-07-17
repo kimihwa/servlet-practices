@@ -34,5 +34,4 @@ public class EmaillistVo {
 		return "EmaillistVo [no=" + no + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ "]";
 	}
-	
 }

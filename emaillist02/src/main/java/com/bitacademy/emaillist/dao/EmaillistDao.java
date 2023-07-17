@@ -1,4 +1,4 @@
-package com.bitacademy.emallist.dao;
+package com.bitacademy.emaillist.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,9 +11,10 @@ import java.util.List;
 import com.bitacademy.emaillist.vo.EmaillistVo;
 
 public class EmaillistDao {
+
 	public List<EmaillistVo> findAll() {
 		List<EmaillistVo> result = new ArrayList<>();
-		
+	
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -21,9 +22,9 @@ public class EmaillistDao {
 		try {
 			conn = getConnection();
 			
-			String sql = "select no, first_name, last_name, email from emaillist order by desc";
+			String sql ="select no, first_name, last_name, email from emaillist order by no desc";
 			pstmt = conn.prepareStatement(sql);
-			
+
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				EmaillistVo vo = new EmaillistVo();
@@ -34,26 +35,30 @@ public class EmaillistDao {
 				
 				result.add(vo);
 			}
+			
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
 			try {
 				if(rs != null) {
 					rs.close();
-				} 
+				}
+				
 				if(pstmt != null) {
 					pstmt.close();
 				}
+				
 				if(conn != null) {
 					conn.close();
 				}
 			} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				e.printStackTrace();
 			}
-		
-			return result;
 		}
+		
+		return result;
+	}
+
 	public void insert(EmaillistVo vo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -71,21 +76,22 @@ public class EmaillistDao {
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("error" + e);
+			System.out.println("error:" + e);
 		} finally {
 			try {
 				if(pstmt != null) {
 					pstmt.close();
 				}
+				
 				if(conn != null) {
 					conn.close();
-				} 
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-				}
 			}
 		}
-	
+	}
+
 	public void deleteByEmail(String email) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -106,6 +112,7 @@ public class EmaillistDao {
 				if(pstmt != null) {
 					pstmt.close();
 				}
+				
 				if(conn != null) {
 					conn.close();
 				}
@@ -120,12 +127,12 @@ public class EmaillistDao {
 		
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			String url = "jdbc:mariadb://172.30.1.38:3306/webdb?charset=utf-8";
+			String url = "jdbc:mariadb://192.168.100.53/webdb?charset=utf8";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패:" + e);
 		}
-		return conn;
 		
+		return conn;
 	}
 }
